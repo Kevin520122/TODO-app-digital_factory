@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
   // Register user
   const register = async (formData) => {
     try {
-      const res = await axios.post('http://localhost:5000/api/register', formData);
+      const res = await axios.post('http://localhost:5000/api/auth/register', formData);
       dispatch({
         type: 'LOGIN',
         payload: res.data
@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
   // Login user
   const login = async (formData) => {
     try {
-      const res = await axios.post('http://localhost:5000/api/login', formData);
+      const res = await axios.post('http://localhost:5000/api/auth/login', formData);
       dispatch({
         type: 'LOGIN',
         payload: res.data
