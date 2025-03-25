@@ -10,17 +10,16 @@ const app = express();
 connectDB();
 
 // Middleware
-<<<<<<< HEAD
+
 app.use(cors(
 {
   origin: ['https://todo-app-digital-factory-git-main-kevinzhaos-projects-c96a4fb1.vercel.app', 'http://localhost:3000'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }
-));
-=======
+))
 // app.use(cors());
->>>>>>> f327f4558d1f31853a2f82095cd393ab202bcccf
+
 app.use(express.json({ extended: false }));
 
 // Define Routes
