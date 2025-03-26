@@ -1,5 +1,6 @@
 import { createContext, useReducer } from 'react';
 import axios from 'axios';
+import { API_URL } from '../config/api';
 
 const TaskContext = createContext();
 
@@ -81,7 +82,7 @@ export const TaskProvider = ({ children }) => {
     try {
       setAuthToken(localStorage.getItem('token'));
       dispatch({ type: 'SET_LOADING' });
-      const res = await axios.get('http://localhost:5000/api/tasks');
+      const res = await axios.get(`${API_URL}/api/tasks`);
       dispatch({
         type: 'GET_TASKS',
         payload: res.data
@@ -98,7 +99,7 @@ export const TaskProvider = ({ children }) => {
   const addTask = async (task) => {
     try {
       setAuthToken(localStorage.getItem('token'));
-      const res = await axios.post('http://localhost:5000/api/tasks', task);
+      const res = await axios.post(`${API_URL}/api/tasks`, task);
       dispatch({
         type: 'ADD_TASK',
         payload: res.data
@@ -115,7 +116,7 @@ export const TaskProvider = ({ children }) => {
   const updateTask = async (task) => {
     try {
       setAuthToken(localStorage.getItem('token'));
-      const res = await axios.put(`http://localhost:5000/api/tasks/${task._id}`, task);
+      const res = await axios.put(`${API_URL}/api/tasks/${task._id}`, task);
       dispatch({
         type: 'UPDATE_TASK',
         payload: res.data
@@ -132,7 +133,7 @@ export const TaskProvider = ({ children }) => {
   const deleteTask = async (id) => {
     try {
       setAuthToken(localStorage.getItem('token'));
-      await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+      await axios.delete(`${API_URL}/api/tasks/${id}`);
       dispatch({
         type: 'DELETE_TASK',
         payload: id

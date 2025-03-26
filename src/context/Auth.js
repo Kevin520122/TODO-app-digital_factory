@@ -1,5 +1,6 @@
 import { createContext, useReducer } from 'react';
 import axios from 'axios';
+import { API_URL } from '../config/api';
 
 const AuthContext = createContext();
 
@@ -54,7 +55,7 @@ export const AuthProvider = ({ children }) => {
   // Register user
   const register = async (formData) => {
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const res = await axios.post(`${API_URL}/api/auth/register`, formData);
       dispatch({
         type: 'LOGIN',
         payload: res.data
@@ -70,7 +71,7 @@ export const AuthProvider = ({ children }) => {
   // Login user
   const login = async (formData) => {
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const res = await axios.post(`${API_URL}/api/auth/login`, formData);
       dispatch({
         type: 'LOGIN',
         payload: res.data
