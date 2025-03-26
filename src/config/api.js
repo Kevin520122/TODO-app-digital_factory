@@ -1,1 +1,1 @@
-export const API_URL = 'https://todo-app-backend-deploy-version.vercel.app';
+export const API_URL = process.env.TODO_APP_API_URL || 'http://localhost:5000';
