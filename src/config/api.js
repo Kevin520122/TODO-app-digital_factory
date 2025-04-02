@@ -1,6 +1,3 @@
-// console.log("All env variables:", process.env);
-// console.log("API URL:", process.env.REACT_APP_API_URL);
-// export const API_URL = process.env.REACT_APP_API_URL;
 const dev = {
     API: "http://localhost:5000"
   };
